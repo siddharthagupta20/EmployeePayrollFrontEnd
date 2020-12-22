@@ -1,8 +1,15 @@
+import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import PayrollForm from './components/payroll-form/payroll-form';
 
 function App() {
   return (
     <div >
-      <h1>Employee Payroll React App</h1>
+      <Router>
+        <Switch>
+          <Route path="/payroll" component={PayrollForm} />
+        </Switch>
+      </Router>
     </div>
   );
 }
