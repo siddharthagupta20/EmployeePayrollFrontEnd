@@ -37,6 +37,7 @@ class HomePage extends React.Component{
                 console.log("err after ",err);
             });
     };
+    
     search = async (event) => {
         let search = event.target.value;
         await this.setState({employeeArray: this.state.AllEmployeeArray});
@@ -57,7 +58,7 @@ class HomePage extends React.Component{
                 <div className="row center button-box">
                     <div className='search-box' onClick={this.openSearch}>
                         <input type="text" name="" id="" className={"input "+(this.state.searchExpand && 'input-expand')}
-                         onChange={this.search} placeholder="" />
+                         onChange={this.search} placeholder="Search" />
                     </div>
                     <Link to="payroll" className="add-button flex-row-center">
                         <img src={addIcon} alt=""/>Add User
@@ -73,3 +74,4 @@ class HomePage extends React.Component{
 }
 
 export default HomePage;
+
