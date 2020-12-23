@@ -115,6 +115,7 @@ const PayrollForm = (props) => {
 
         employeeService.addEmployee(object).then(data => {
             console.log("data added successfully!");
+            props.history.push("/home");
         }).catch(err => {
             console.log("err after Adding data!!");
         })
