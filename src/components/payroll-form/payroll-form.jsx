@@ -1,11 +1,11 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, Component} from "react";
 import profile1 from '../../assets/profile-images/Ellipse -3.png';
 import profile2 from '../../assets/profile-images/Ellipse 1.png';
 import profile3 from '../../assets/profile-images/Ellipse -8.png';
 import profile4 from '../../assets/profile-images/Ellipse -7.png';
 import logo from '../../assets/images/logo.png';
 import '../payroll-form/payroll-form.scss';
-import {useParam, link, withRouter } from 'react-router-dom';
+import {useParams, Link, withRouter } from 'react-router-dom';
 import EmployeeService from '../../services/employee-service';
 
 const PayrollForm = (props) => {
@@ -41,6 +41,45 @@ const PayrollForm = (props) => {
         }
     }
     const [formValue, setForm] = useState(initialValue);
+
+    const params = useParams();
+    
+    useEffect(() => {
+        console.log(params);
+        if(params.id){
+            getDataById(params.id);
+        }
+    }, []);
+
+    const getDataById = (id) =>{
+        employeeService.getEmployee(id)
+        .then((data) =>{
+            console.log("data is "+ data.data);
+            let obj = data.data;
+            setData(obj);
+        })
+        .catch( (err) => {
+            console.log("err is "+ err);
+        });
+    };
+
+    const setData = (obj) => {
+        let array = obj.startDate.split(" ");
+        setForm({
+            ...formValue,
+            ...obj,
+            departmentValue: obj.departments,
+            isUpdate : true,
+            name: obj.name,
+            salary: obj.salary,
+            profileUrl : obj.profilePic,
+            day: array[0],
+            month: array[1],
+            year: array[2],
+            gender: obj.gender,
+            notes: obj.note,
+        });
+    };
 
     const changeValue = (event) => {
         setForm({...formValue, [event.target.name]: event.target.value})
@@ -102,23 +141,39 @@ const PayrollForm = (props) => {
      let employeeService = new EmployeeService();
     const save = async (event) => {
         event.preventDefault();
+
+        if(await validData()){
+            console.log("error",formValue);
+            return;
+        }else{
         let object  = {
             name: formValue.name,
             departments: formValue.departmentValue,
             gender: formValue.gender,
             salary: formValue.salary,
             startDate: `${formValue.day} ${formValue.month} ${formValue.year}`,
-            note: formValue.notes,
-            profileUrl : formValue.profileUrl,
+            note : formValue.notes,
+            profilePic : formValue.profileUrl,
+        };
 
-        }
-
+        if(formValue.isUpdate){
+            employeeService.updateEmployee(object)
+            .then( (data) => {
+                alert("Data updated successfully!")
+                props.history.push("/home");
+            })
+            .catch( (error) => {
+                console.log("Error after update"+error);
+            })
+        } else{
         employeeService.addEmployee(object).then(data => {
-            console.log("data added successfully!");
+            console.log("data added successfully");
             props.history.push("/home");
         }).catch(err => {
-            console.log("err after Adding data!!");
-        })
+            console.log("error after Add data");
+        });
+    }
+    }
     }
 
     const reset = () => {
@@ -202,15 +257,15 @@ const PayrollForm = (props) => {
                             <label htmlFor="startDate" className="label text" >Start Date</label>
                             <div>
                                 <select name="day" id="day" onChange={changeValue}>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
