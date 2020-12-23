@@ -1,0 +1,23 @@
+[33mcommit 866b733a50d534c71d92408b2553a3cc957cea91[m[33m ([m[1;36mHEAD -> [m[1;32mPayrollForm[m[33m, [m[1;31morigin/PayrollForm[m[33m)[m
+Author: siddharthagupta20 <siddharthagupta20@users.noreply.github.com>
+Date:   Wed Dec 23 13:32:05 2020 +0530
+
+    [Siddhartha] modified: saving data in payroll form
+
+[33mcommit 6b0b8413447c6cc58dd5c846c7aafad3524efc4c[m
+Author: siddharthagupta20 <siddharthagupta20@users.noreply.github.com>
+Date:   Tue Dec 22 17:17:50 2020 +0530
+
+    [Siddhartha] created: Employee Payroll Form page to add details of employee
+
+[33mcommit ced07e225547bac87bdcf1ca88406304c107998e[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: siddharthagupta20 <siddharthagupta20@users.noreply.github.com>
+Date:   Tue Dec 22 16:49:51 2020 +0530
+
+    [Siddhartha] created: employee payroll frontend using React
+
+[33mcommit 6e929245dd3e5940fa6c59e11226b20669784bc7[m
+Author: siddharthagupta20 <siddharthagupta20@users.noreply.github.com>
+Date:   Tue Dec 22 16:43:41 2020 +0530
+
+    Initialize project using Create React App
