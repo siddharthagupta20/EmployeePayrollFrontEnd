@@ -8,8 +8,15 @@ function App() {
     <div >
       <Router>
         <Switch>
-          <Route path="/payroll" component={PayrollForm} />
-          <Route path="/home" component={HomePage} />
+          <Route exact path="/home">
+            <HomePage />
+          </Route>
+          <Route exact path="/payroll/:id">
+            <PayrollForm />
+          </Route>
+          <Route exact path="">
+            <Redirect exact from="/" to="/home" />
+          </Route>
         </Switch>
       </Router>
     </div>
