@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import PayrollForm from './components/payroll-form/payroll-form';
 import HomePage from './components/home-page/home-page';
 
