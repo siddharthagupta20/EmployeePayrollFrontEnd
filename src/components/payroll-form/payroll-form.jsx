@@ -104,18 +104,18 @@ const PayrollForm = (props) => {
         event.preventDefault();
         let object  = {
             name: formValue.name,
-            department: formValue.departmentValue,
+            departments: formValue.departmentValue,
             gender: formValue.gender,
             salary: formValue.salary,
             startDate: `${formValue.day} ${formValue.month} ${formValue.year}`,
-            notes: formValue.notes,
-            id: formValue.id,
+            note: formValue.notes,
             profileUrl : formValue.profileUrl,
 
         }
 
         employeeService.addEmployee(object).then(data => {
             console.log("data added successfully!");
+            props.history.push("/home");
         }).catch(err => {
             console.log("err after Adding data!!");
         })
