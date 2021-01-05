@@ -1,22 +1,28 @@
-header {
+.header {
     padding: 15px 0;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
     .logo {
       display: flex;
       flex-direction: row;
       align-items: center;
-      width: 60%;
+      width: 80%;
       margin-left: 10%;
     }
     .emp-text {
-      font: normal normal bold 20px/10px Montserrat;
+      font: normal normal bold 20px/25px Montserrat;
       font-family: "Montserrat", sans-serif;
       letter-spacing: 0px;
       color: #82a70c;
       text-transform: capitalize;
+      margin-left: 2%;
     }
     .emp-payroll {
-        margin-right: 90%;
+      margin-right: 90%;
       color: #42515f;
     }
   }
@@ -28,9 +34,9 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0;
+      border: 0px solid green;
       .form {
-        margin-top: 4%;
+        margin-top: 0%;
         width: 65%;
         padding: 30px 60px;
         background: #ffffff 0% 0% no-repeat padding-box;
@@ -38,7 +44,7 @@ header {
         border: 1px solid #f5f5f5;
         border-radius: 8px;
         opacity: 1;
-        margin-bottom: 4%;
+        margin-bottom: 8%;
         .row {
             display: flex;
             flex-direction: row;
@@ -54,7 +60,6 @@ header {
           opacity: 1;
           padding-bottom: 30px;
         }
-
         .label {
           min-width: 140px;
         }
@@ -62,7 +67,7 @@ header {
           font-size: 16px;
           color: #42515f;
           opacity: 1;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: Roboto;
         }
         .error {
             margin-left: 10px;
@@ -91,7 +96,7 @@ header {
           cursor: pointer;
         }
         .input {
-          width: 70%;
+          width: 80%;
           padding: 12px;
           border: 1px solid #ccc;
           border-radius: 4px;
@@ -132,7 +137,7 @@ header {
           text-decoration: none;
           text-align: center;
         }
-
+  
         label {
           padding: 12px 12px 12px 0;
           display: inline-block;
@@ -159,7 +164,7 @@ header {
       box-sizing: border-box;
     }
   }
-
+  
 
   .flex-row-center {
     display: flex;
@@ -180,7 +185,7 @@ header {
       }
     }
   }
-
+  
   @media only screen and (max-width: 600px) {
     .payroll-main {
       .content {
@@ -216,7 +221,7 @@ header {
     .error {
       padding: 0;
     }
-
+  
     .row {
       flex-direction: column;
     }

@@ -5,6 +5,7 @@ import logo from '../../assets/images/logo.png';
 import addIcon from '../../assets/icons/add-24px.svg';
 import './home-page.scss';
 import EmployeeService from '../../services/employee-service';
+import searchIcon from '../../assets/icons/search-image.png';
 
 class HomePage extends React.Component{
     constructor(props){
@@ -27,10 +28,10 @@ class HomePage extends React.Component{
         this.employeeService
             .getAllEmployee()
             .then((data) =>{
-                console.log("data after get "+data.data);
+                console.log("data after get "+data.data.data);
                 this.setState({
-                    employeeArray: data.data,
-                    AllEmployeeArray: data.data,
+                    employeeArray: data.data.data,
+                    AllEmployeeArray: data.data.data,
                 });
             })
             .catch((err) => {
@@ -50,24 +51,34 @@ class HomePage extends React.Component{
 
     render(){
         return(
+            <div>
+                <header className="header row center">
+                    <div className="logo">
+                        <img src={logo} alt=""/>
+                        <div>
+                            <span className="emp-text">EMPLOYEE</span><br></br>
+                            <span className="emp-text emp-payroll">PAYROLL</span>
+                        </div>
+                    </div>
+                </header>
             <div className="column content">
                 <div className="emp-detail">
                     <div className="detail-text">
-                        Employee Details <div className="count"></div>
+                        Employee Details 
+                        <div className="count">{this.state.AllEmployeeArray.length}</div>
                     </div>
-                <div className="row center button-box">
-                    <div className='search-box' onClick={this.openSearch}>
+                    <span className='search-box' onClick={this.openSearch}>
                         <input type="text" name="" id="" className={"input "+(this.state.searchExpand && 'input-expand')}
                          onChange={this.search} placeholder="Search" />
-                    </div>
+                    </span>
                     <Link to="payroll" className="add-button flex-row-center">
                         <img src={addIcon} alt=""/>Add User
-                    </Link>
-                </div>
+                    </Link> 
                 </div>
                 <div className="table-main">
                     <Display employeeArray={this.state.employeeArray} />
                 </div>
+            </div>
             </div>
         )
     }

@@ -11,6 +11,9 @@ function App() {
           <Route exact path="/home">
             <HomePage />
           </Route>
+          <Route exact path="/payroll">
+            <PayrollForm />
+          </Route>
           <Route exact path="/payroll/:id">
             <PayrollForm />
           </Route>

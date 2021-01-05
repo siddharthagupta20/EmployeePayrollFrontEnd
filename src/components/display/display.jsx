@@ -23,8 +23,7 @@ const Display = (props) => {
             props.getAllEmployee();
         })
         .catch((err) => {
-            alert("error while deleting the data")
-            console.log("error after delte "+err);
+            console.log(err);
         })
     }
 
@@ -32,7 +31,7 @@ const Display = (props) => {
         <table id="display" className="display">
             <tbody>
                 <tr key={-1}>
-                    <th></th>
+                    <th>Profile Image</th>
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Department</th>

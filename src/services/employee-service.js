@@ -12,8 +12,8 @@ export default class EmployeeService{
     getEmployee(id){
         return AxiosService.getService(`${this.baseUrl}get/${id}`);
     }
-    updateEmployee(data){
-        return AxiosService.putService(`${this.baseUrl}update/${data.id}`,data);
+    updateEmployee(data,id){
+        return AxiosService.putService(`${this.baseUrl}update/${id}`,data);
     }
     deleteEmployee(id){
         return AxiosService.deleteService(`${this.baseUrl}delete/${id}`);
